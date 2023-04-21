@@ -181,6 +181,8 @@ class HtmlReport implements IReport<HtmlReport> {
     buf.add('<strong>' + name + '</strong>');
     buf.add(': ');
     resultNumbers(buf, result.stats);
+    var funcTime = Math.round(result.executionTime) + " ms";
+    buf.add('<span class="tracetime">$funcTime</span>');
     var messages = [];
     for(assertation in result.iterator()) {
       switch(assertation) {
